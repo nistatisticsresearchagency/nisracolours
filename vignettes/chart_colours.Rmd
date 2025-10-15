@@ -25,7 +25,7 @@ theme_set(theme_minimal(base_size = 12))
 
 The official NISRA colours (shown on the left in the charts below) are limited in number and can cause accessibility problems in charts.
 
-```{r colours, fig.show="hold", out.width="45%", fig.height=3}
+```{r colours, fig.show="hold", out.width="45%", fig.height=3, fig.alt="Two bar charts side-by-side using the official NISRA colours on the left and the NISRA colour palette on the right"}
 df <- data.frame(
   group = c("Employed", "Unemployed", "Inactive"),
   rate = c(0.716, 0.423, 0.272)
