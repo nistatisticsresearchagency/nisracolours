@@ -9,7 +9,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  message = FALSE,
+  warning = FALSE
 )
 ```
 
@@ -18,37 +20,34 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of nisracolours is to ...
+nisracolours provides accessible colour palettes for use in charts. These palettes can be used to style charts created using ggplot2. This is also a basic example package with functions, documentation and a pkgdown website. 
 
 ## Installation
 
 You can install the development version of nisracolours like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("pak")
+pak::pak("nistatisticsresearchagency/nisracolours")
 ```
 
-## Example
+## Usage
 
-This is a basic example which shows you how to solve a common problem:
+The easiest way to use nisracolours is to use the `scale_fill/colour_discrete_nisra()` functions:
 
-```{r example}
+```{r plot-1}
+#| fig.alt: >
+#|   Line chart of GDP per capita for France and Germany, 1952 to 2007, coloured
+#|   taken from the Gapminder dataset. Both increase over time, but Germany
+#|   has slightly higher GDP per capita throughout. The lines are coloured using
+#|   the NISRA colour palette.     
 library(nisracolours)
-## basic example code
+library(ggplot2)
+library(gapminder)
+
+subset(gapminder, country %in% c("Germany", "France")) |> 
+  ggplot(aes(year, gdpPercap, colour = country)) +
+  geom_line() +
+  scale_colour_discrete_nisra() +
+  theme_bw()
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
