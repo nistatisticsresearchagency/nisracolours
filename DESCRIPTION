@@ -23,5 +23,5 @@ Imports:
     cli,
     ggplot2
 VignetteBuilder: knitr
-URL: https://github.com/nistatisticsresearchagency/nisracolours
+URL: https://github.com/nistatisticsresearchagency/nisracolours, https://nistatisticsresearchagency.github.io/nisracolours/
 BugReports: https://github.com/nistatisticsresearchagency/nisracolours/issues
